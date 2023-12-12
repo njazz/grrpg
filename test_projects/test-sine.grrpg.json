@@ -1,0 +1,112 @@
+{
+    "sources": [
+        "files/Windows XP Logon Sound.wav",
+        "files/Windows XP Startup.wav",
+        "files/Windows XP Ding.wav",
+        "files/Windows XP Hardware Remove.wav",
+        "files/Windows XP Logoff Sound.wav",
+        "files/Windows XP Battery Low.wav",
+        "files/Windows XP Shutdown.wav",
+        "files/Windows XP Error.wav",
+        "files/Windows XP Hardware Insert.wav",
+        "files/Windows XP Exclamation.wav",
+        "files/Windows XP Critical Stop.wav",
+        "files/chimes.wav",
+        "files/Windows XP Battery Critical.wav",
+        "files/notify.wav"
+    ],
+    "track_count": 12,
+    "loop_items": true,
+    "project_length": 30,
+    "output_file_name": "test-output.16.rpp",
+    "length": {
+        "0": "random.uniform(0.5, 1.)",
+        "25": ".05"
+    },
+    "rate": {
+        "0": "random.uniform(1, 1)",
+        "15": "random.uniform(1, 1.)"
+    },
+    "spacing": {
+        "0": "random.uniform(0.1,0.2)",
+        "30": "0"
+    },
+    "fade_in": {
+        "0": "random.uniform(0, 0.025)",
+        "15": ".1"
+    },
+    "fade_out": {
+        "0": "random.uniform(0, 0.025)",
+        "15": ".1"
+    },
+    "gain": {
+        "0": "random.uniform(-30, 0.0)",
+        "29": "-6"
+    },
+    "pitch_offset": {
+        "0": "0"
+    },
+    "ts_type": {
+        "0": "ctx.elastique_pro"
+    },
+    "sample_offset": {
+        "0": "random.uniform(0, ctx.current_file_length)"
+    },
+    "pan_automation": {
+        "0": "random.uniform(-1, 1)",
+        "15": "random.uniform(-1, 1)"
+    },
+    "item_pitch_start": {
+        "0": "0",
+        "15": "0",
+        "25": "0"
+    },
+    "item_pitch_middle": {
+        "0": "-12",
+        "1": "-12",
+        "2": "-12"
+    },
+    "item_pitch_end": {
+        "0": "0",
+        "15": "0",
+        "25": "0"
+    },
+    "item_pan_start": {
+        "0": "1",
+        "15": "-1",
+        "25": "1"
+    },
+    "item_pan_middle": {
+        "0": "-1",
+        "15": "1",
+        "25": "-1"
+    },
+    "item_pan_end": {
+        "0": "1.",
+        "15": "-1",
+        "25": "1"
+    },
+    "item_probability": {
+        "0": "1",
+        "20": "ctx.track_number == (math.sin(ctx.position)*4+4)"
+    },
+    "seed_global": 0,
+    "seed_source": 0,
+    "seed_length": 1,
+    "seed_rate": 2,
+    "seed_spacing": 3,
+    "seed_fade_in": 4,
+    "seed_fade_out": 5,
+    "seed_gain": 6,
+    "seed_pitch_offset": 7,
+    "seed_ts_type": 8,
+    "seed_sample_offset": 9,
+    "seed_pan_automation": 10,
+    "seed_item_pitch_start": 11,
+    "seed_item_pitch_middle": 12,
+    "seed_item_pitch_end": 13,
+    "seed_item_pan_start": 14,
+    "seed_item_pan_middle": 15,
+    "seed_item_pan_end": 16,
+    "seed_item_probability": 17
+}

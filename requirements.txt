@@ -1,0 +1,4 @@
+dearpygui==1.10.0
+reathon==0.0.5
+soundfile==0.12.1
+pyinstaller==6.2.0
