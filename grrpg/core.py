@@ -15,14 +15,42 @@ ts_type_rearearea = 983040
 
 class GeneratorContext():
     def __init__(self):
-        self.track_number = 0
         self.position = 0
+        self.track_number = 0        
         self.current_file_length = 0
+        self.track_count = 0
 
         self.soundtouch = 0
         self.elastique_pro = 589824
         self.rreeaa = 917504
         self.rearearea = 983040
+
+    def fr_to_sec(self, f: float):
+        return f * self.current_file_length
+
+def get_generator_context_doc():
+    return """
+ctx.position            
+   : time in seconds
+ctx.track_number        
+   : current track index (0-based)
+ctx.track_count
+   : copy of track count value
+ctx.current_file_length 
+   : length of audio file in item
+
+time stretch modes:
+
+ctx.soundtouch
+ctx.elastique_pro
+ctx.rreeaa
+ctx.rearearea
+
+tools:
+ctx.fr_to_sec(f: float)
+   : accepts 0..1
+   : returns 0..[current file length]
+"""
 
 class GeneratorProject():
     def __init__(self):
@@ -304,6 +332,9 @@ def generate_project(p: GeneratorProject):
 
     # ctx = GeneratorContext()
 
+    ctx.track_number = 0
+    ctx.track_count = p.track_count
+
     grain_seed_index = 0
 
     for track in tracks:
@@ -345,7 +376,6 @@ def generate_project(p: GeneratorProject):
             def db_to_a(dB):
                 return 10 ** (dB / 20)
             gain = db_to_a(gain)
-
 
             random.seed(p.seed_global + p.seed_pitch_offset + 10000 * ctx.track_number)
             pitch_offset = interpolate_values(pos, p.pitch_offset)#0

@@ -308,7 +308,7 @@ view_state = ViewState()
 # init
 
 dpg.create_context()
-dpg.create_viewport(title="REAPER project generator", width=1280, height=700)
+dpg.create_viewport(title="REAPER project generator", width=1280, height=900)
 dpg.setup_dearpygui()
 
 ####################################
@@ -353,7 +353,7 @@ with dpg.value_registry():
 ####################################
 # window
 
-with dpg.window(label="main", width=1280, height=700, no_title_bar=True, no_resize=True, no_move = True, tag="main_window"):
+with dpg.window(label="main", width=1280, height=900, no_title_bar=True, no_resize=True, no_move = True, tag="main_window"):
 
     with dpg.group(horizontal=True):
         dpg.add_button(label="open project", width = 120, callback = lambda: view_state.file_selector_open_project_show())
@@ -402,8 +402,12 @@ with dpg.window(label="main", width=1280, height=700, no_title_bar=True, no_resi
 
     with dpg.group(horizontal = True):
 
-        with dpg.group(horizontal = True, width = 200):
+        with dpg.group(horizontal = False, width = 200):
             dpg.add_radio_button(button_labels_1, callback=lambda sender: view_state.set_selected(dpg.get_value(sender)))
+
+            # dpg.add_separator()
+
+            dpg.add_text(core.get_generator_context_doc())
         
         # dpg.add_text("Anti-aliasing can be enabled from the plot's context menu (see Help).", bullet=True)
     
